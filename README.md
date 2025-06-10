@@ -7,11 +7,9 @@ This project aims to build and evaluate predictive models to detect early onset 
 The project compares multiple machine learning models, applies preprocessing and regularization, and prioritizes model interpretability and recall.This ensures the best chance of identifying at-risk patients early.
 
 ## Objectives
-
-- Can we predict whether a patient is likely to develop diabetes using health-      related features such as glucose, BMI, and age?
--Which features have the greatest influence on diabetes prediction, and how can    we interpret their impact?
--Can we improve predictive performance by tuning a decision Tree Classifier, and   how does it compare to a simple baseline model?
-
+-How accurately can our model predict diabetes in a patient?
+- What is the model's general ability to differentiate between diabetic and non-diabetic patients?
+-  What are the specific strengths and weaknesses of the model's predictions for each patient group?
 ## Stakeholder Benefit
 
 This model can assist primary care physicians and insurance providers in early detection of at-risk patients, allowing for early intervention and cost-effective treatment planning.
@@ -57,7 +55,7 @@ Decision Tree - GridSearchCV ('depth', 'leaf')
 
 ## Interpretation
 - **Logistic Regression** is highly interpretable and was improved using L1/L2 regularization.
-- **Decision Tree** was easy to explain but prone to overfitting without depth control.
+- **Decision Tree** was easy to explain, but prone to overfitting without depth control.
 
 ## Key Insights
 
@@ -65,6 +63,18 @@ Decision Tree - GridSearchCV ('depth', 'leaf')
 - Feature transformation and regularization significantly improved model performance.
 - Choosing a model with **high recall** is essential in medical settings to minimize false negatives.
 
-#
+# Recommendations and conclusions
+1. How accurately can our model predict diabetes in a patient?
+Conclusion: The tuned Decision Tree model demonstrated an 85% recall rate in identifying true diabetic cases, alongside an overall accuracy of 75%.
+Recommendation: It is recommended to proceed with the tuned Decision Tree model. Its superior recall in identifying true diabetic cases makes it the most suitable choice for an early detection system where minimizing missed diagnoses is paramount.
+
+2. What is the model's general ability to differentiate between diabetic and non-diabetic patients?
+Conclusion: Both models showed strong discriminatory power, evidenced by an AUC of 0.81.
+Recommendation: Further efforts should focus on fine-tuning the Decision Tree's classification threshold to optimally balance false positives and false negatives based on their specific costs in a real-world clinical setting.
+
+3. What are the specific strengths and weaknesses of the model's predictions for each patient group?
+Conclusion: The Decision Tree's strength lies in its high recall for the diabetic group. However, a weakness is a slightly higher rate of false positives in the non-diabetic group.
+Recommendation: To enhance the model's overall utility, it is recommended to strategically address the Decision Tree's tendency for slightly higher false positives in the non-diabetic group. This could involve exploring techniques to improve precision without compromising the vital recall for diabetic patients.
+
 
 
